@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Surprise for Kushu ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3, #e0aaff);
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+.card {
+    background: rgba(255,255,255,0.95);
+    padding: 45px 30px;
+    border-radius: 30px;
+    max-width: 550px;
+    box-shadow: 0 20px 50px #a0005055;
+}
+
+h1 {
+    color: #e91e63;
+}
+
+p {
+    color: #a61e57;
+    font-size: 19px;
+    line-height: 1.9;
+}
+
+button {
+    background: #ff4081;
+    border: none;
+    color: white;
+    padding: 16px 30px;
+    border-radius: 30px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+#secret {
+    display: none;
+    animation: fadeIn 1.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>ONE LAST THING BBYYYY... 💌</h1>
+
+<p>
+Kushuuuu, thank you for being part of my life.
+I love the memories we've made,
+the laughter we've shared,
+and all the little moments that mean so much.
+</p>
+
+<p>
+I hope we keep making beautiful memories together. ❤️
+</p>
+
+<button onclick="reveal()">
+OPEN YOUR FINAL SURPRISE 🎁
+</button>
+
+<div id="secret">
+
+<h1>💗 I LOVEEEE YOUUUU KUSHUUUU BBYYYY!!! 💗</h1>
+
+<p>
+You're my favourite person,
+my favourite notification,
+and one of the happiest parts of my life.
+</p>
+
+<p>
+Forever grateful for our little love story. 🥹❤️
+</p>
+
+<button onclick="window.location.href='index.html'">
+START AGAIN 💕
+</button>
+
+</div>
+
+</div>
+
+<script>
+function reveal() {
+    document.getElementById("secret").style.display = "block";
+}
+</script>
+
+</body>
+</html>
