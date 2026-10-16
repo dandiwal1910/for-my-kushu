@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>A Surprise for Kushu ❤️</title>
 
 <style>
@@ -24,6 +25,7 @@ body {
     padding: 45px 30px;
     border-radius: 30px;
     max-width: 550px;
+    width: 100%;
     box-shadow: 0 20px 50px #a0005055;
 }
 
@@ -45,11 +47,25 @@ button {
     border-radius: 30px;
     font-size: 17px;
     cursor: pointer;
+    margin: 10px 5px;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background: #e91e63;
 }
 
 #secret {
     display: none;
     animation: fadeIn 1.5s;
+}
+
+.birthday-button {
+    background: linear-gradient(135deg, #ff4081, #c850c0);
+    margin-top: 25px;
+    padding: 18px 28px;
+    font-weight: bold;
 }
 
 @keyframes fadeIn {
@@ -63,19 +79,67 @@ button {
 
 <div class="card">
 
-<h1>ONE LAST THING BBYYYY... 💌</h1>
+    <h1>ONE LAST THING BBYYYY... 💌</h1>
 
-<p>
-Kushuuuu, thank you for being part of my life.
-I love the memories we've made,
-the laughter we've shared,
-and all the little moments that mean so much.
-</p>
+    <p>
+        Kushuuuu, thank you for being part of my life.
+        I love the memories we've made,
+        the laughter we've shared,
+        and all the little moments that mean so much.
+    </p>
 
-<p>
-I hope we keep making beautiful memories together. ❤️
-</p>
+    <p>
+        I hope we keep making beautiful memories together. ❤️
+    </p>
 
-<button onclick="window.location.href='birthday.html'">
-OPEN YOUR FINAL SURPRISE 🎁
-</button>
+    <button onclick="reveal()">
+        OPEN YOUR FINAL SURPRISE 🎁
+    </button>
+
+    <div id="secret">
+
+        <h1>💗 I LOVEEEE YOUUUU KUSHUUUU BBYYYY!!! 💗</h1>
+
+        <p>
+            You're my favourite person,
+            my favourite notification,
+            and one of the happiest parts of my life.
+        </p>
+
+        <p>
+            Forever grateful for our little love story. 🥹❤️
+        </p>
+
+        <button onclick="window.location.href='index.html'">
+            START AGAIN 💕
+        </button>
+
+    </div>
+
+    <!-- NEW BIRTHDAY COUNTDOWN BUTTON -->
+
+    <hr style="border: 1px solid #ffd1e1; margin-top: 30px;">
+
+    <h2 style="color:#e91e63;">
+        🎂 AND ONE MORE THING, BBY! 🎂
+    </h2>
+
+    <p>
+        Your special day is almost hereee! 🥹💕
+    </p>
+
+    <button class="birthday-button"
+        onclick="window.location.href='birthday.html'">
+        🎀 OPEN YOUR BIRTHDAY COUNTDOWN 🎀
+    </button>
+
+</div>
+
+<script>
+function reveal() {
+    document.getElementById("secret").style.display = "block";
+}
+</script>
+
+</body>
+</html>
