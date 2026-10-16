@@ -3,80 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>For My Kushe Bby ❤️</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: 'Georgia', serif;
+            font-family: Georgia, serif;
             background: linear-gradient(135deg, #ffd6e7, #ff9ebf, #ffc4d6);
             text-align: center;
-            overflow: hidden;
+            overflow-x: hidden;
+            padding: 25px 12px;
         }
 
         .window {
-            background: rgba(255, 255, 255, 0.85);
-            padding: 35px 25px;
-            border-radius: 25px;
-            width: 300px;
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.92);
+            padding: 30px 20px;
+            border-radius: 28px;
+            width: 100%;
+            max-width: 390px;
             box-shadow: 0 10px 35px rgba(255, 50, 120, 0.25);
-            animation: pop 1s ease;
+            border: 2px solid white;
+            animation: appear 1s ease;
+        }
+
+        .decoration {
+            font-size: 42px;
+            margin-bottom: 10px;
         }
 
         h1 {
             color: #ff367c;
-            font-size: 30px;
+            font-size: 29px;
+            margin: 10px 0;
         }
 
         h2 {
             color: #e84375;
+            font-size: 23px;
         }
 
-        p {
+        .subtitle {
             color: #a8325b;
-            font-size: 18px;
+            font-size: 17px;
             line-height: 1.6;
         }
 
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 7px;
+            margin: 25px 0;
+        }
+
+        .time-box {
+            background: #ffe0ec;
+            border: 1px solid #ffc0d7;
+            border-radius: 14px;
+            padding: 12px 5px;
+            width: 76px;
+            box-shadow: 0 4px 10px rgba(255, 100, 150, 0.12);
+        }
+
+        .number {
+            font-size: 27px;
+            font-weight: bold;
+            color: #ff367c;
+            margin: 0;
+        }
+
+        .label {
+            color: #a8325b;
+            font-size: 12px;
+        }
+
         button {
-            background: #ff4f91;
+            background: linear-gradient(135deg, #ff4f91, #ff78a9);
             color: white;
             border: none;
             border-radius: 30px;
-            padding: 13px 22px;
+            padding: 14px 22px;
             font-size: 16px;
+            font-family: Georgia, serif;
             cursor: pointer;
             margin-top: 12px;
+            box-shadow: 0 5px 15px rgba(255, 50, 120, 0.25);
+            transition: 0.3s;
         }
 
         button:hover {
-            background: #e62e73;
             transform: scale(1.05);
         }
 
+        #surprise {
+            display: none;
+            margin-top: 22px;
+            color: #c02c65;
+            line-height: 1.8;
+            font-size: 16px;
+            background: #fff0f6;
+            padding: 16px;
+            border-radius: 18px;
+            animation: appear 0.7s ease;
+        }
+
         .heart {
-            position: absolute;
-            bottom: -30px;
-            animation: float 7s linear infinite;
-            font-size: 25px;
+            position: fixed;
+            bottom: -40px;
+            z-index: 1;
+            pointer-events: none;
+            animation: float 8s linear infinite;
+        }
+
+        .footer {
+            color: #d94a7e;
+            font-size: 13px;
+            margin-top: 20px;
         }
 
         @keyframes float {
-            to {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.9;
+            }
+
+            100% {
                 transform: translateY(-110vh) rotate(360deg);
                 opacity: 0;
             }
         }
 
-        @keyframes pop {
+        @keyframes appear {
             from {
-                transform: scale(0.7);
+                transform: scale(0.85);
                 opacity: 0;
             }
+
             to {
                 transform: scale(1);
                 opacity: 1;
@@ -88,48 +164,183 @@
 <body>
 
     <div class="window">
-        <div style="font-size: 45px;">🎀💗🎂</div>
+
+        <div class="decoration">🎀💗🎂</div>
 
         <h1>Happie Birthday Soon!</h1>
 
         <h2>My Kushe Bbyyy ❤️</h2>
 
-        <p>
-            Only <b>3 DAYS TO GO!</b> 🥹💕<br>
-            My princess's special day is almost here!
-            <br><br>
-            I have a little surprise waiting for youuu! 💌
+        <p class="subtitle">
+            The countdown to my favourite girl's special day
+            has officially begunnn! 🥹💕
+        </p>
+
+        <div class="countdown" id="countdown">
+
+            <div class="time-box">
+                <p class="number" id="days">00</p>
+                <span class="label">DAYS</span>
+            </div>
+
+            <div class="time-box">
+                <p class="number" id="hours">00</p>
+                <span class="label">HOURS</span>
+            </div>
+
+            <div class="time-box">
+                <p class="number" id="minutes">00</p>
+                <span class="label">MINS</span>
+            </div>
+
+            <div class="time-box">
+                <p class="number" id="seconds">00</p>
+                <span class="label">SECS</span>
+            </div>
+
+        </div>
+
+        <p class="subtitle">
+            Only a little more time until I get to celebrate YOU! 💋
         </p>
 
         <button onclick="showMessage()">
-            Open Your Surprise 💗
+            Open Your Surprise 💌
         </button>
 
-        <p id="surprise" style="display:none;">
-            I love youuu sooooo much, bbyyy! 🥹❤️
-            <br>
-            You make my world more beautiful.
-            <br>
-            Your birthday is special to me because
-            YOU are special to me! 💋
+        <div id="surprise">
+            <div style="font-size: 35px;">💗🥹💗</div>
+
+            <h2>To My Kushe Bbyyy</h2>
+
+            Happie birthday in advance, meri jaan! ❤️
+
             <br><br>
-            Forever your boyyy! 💖
-        </p>
+
+            I hope your special day brings you all the happiness
+            you deserve. You mean so much to me, and I'm so lucky
+            to have you in my life. 🫶🏻
+
+            <br><br>
+
+            Three days to gooo, bbyyy! 🎂
+
+            <br><br>
+
+            I love youuu sooo muchhh! 💋❤️
+
+            <br><br>
+
+            <strong>Forever your boyyy 💗</strong>
+        </div>
+
+        <div class="footer">
+            Made with all my love, just for you 💖
+        </div>
+
     </div>
 
     <script>
-        function showMessage() {
-            document.getElementById("surprise").style.display = "block";
+
+        // Her birthday: 19 October 2026
+        // Time zone: India (IST)
+
+        const birthday = new Date(
+            "2026-10-19T00:00:00+05:30"
+        ).getTime();
+
+        function updateCountdown() {
+
+            const now = Date.now();
+            const difference = birthday - now;
+
+            if (difference <= 0) {
+
+                document.getElementById("countdown").innerHTML =
+                    "<h2>HAPPIE BIRTHDAY KUSHU BBYYY! 🎂❤️</h2>";
+
+                document.querySelector("h1").innerText =
+                    "Happie Birthday, Bbyyy! 🎉";
+
+                document.querySelector(".subtitle").innerText =
+                    "FINALLYYYY, IT'S YOUR SPECIAL DAY! 🥹💗";
+
+                return;
+            }
+
+            const days = Math.floor(
+                difference / (1000 * 60 * 60 * 24)
+            );
+
+            const hours = Math.floor(
+                (difference / (1000 * 60 * 60)) % 24
+            );
+
+            const minutes = Math.floor(
+                (difference / (1000 * 60)) % 60
+            );
+
+            const seconds = Math.floor(
+                (difference / 1000) % 60
+            );
+
+            document.getElementById("days").innerText =
+                String(days).padStart(2, "0");
+
+            document.getElementById("hours").innerText =
+                String(hours).padStart(2, "0");
+
+            document.getElementById("minutes").innerText =
+                String(minutes).padStart(2, "0");
+
+            document.getElementById("seconds").innerText =
+                String(seconds).padStart(2, "0");
         }
 
-        for (let i = 0; i < 18; i++) {
-            let heart = document.createElement("div");
-            heart.className = "heart";
-            heart.innerHTML = ["❤️", "💗", "💕", "🎀"][i % 4];
-            heart.style.left = Math.random() * 100 + "vw";
-            heart.style.animationDelay = Math.random() * 7 + "s";
-            document.body.appendChild(heart);
+        function showMessage() {
+
+            const message = document.getElementById("surprise");
+
+            if (message.style.display === "block") {
+                message.style.display = "none";
+            } else {
+                message.style.display = "block";
+            }
+
         }
+
+        updateCountdown();
+
+        setInterval(updateCountdown, 1000);
+
+        // Floating hearts animation
+
+        const heartEmojis = ["❤️", "💗", "💕", "💖", "🎀"];
+
+        for (let i = 0; i < 22; i++) {
+
+            const heart = document.createElement("div");
+
+            heart.className = "heart";
+
+            heart.innerText =
+                heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+
+            heart.style.left = Math.random() * 100 + "vw";
+
+            heart.style.fontSize =
+                (15 + Math.random() * 20) + "px";
+
+            heart.style.animationDelay =
+                Math.random() * 8 + "s";
+
+            heart.style.animationDuration =
+                (6 + Math.random() * 6) + "s";
+
+            document.body.appendChild(heart);
+
+        }
+
     </script>
 
 </body>
