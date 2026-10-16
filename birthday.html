@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Kushe Bby ❤️</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #ffd6e7, #ff9ebf, #ffc4d6);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .window {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 35px 25px;
+            border-radius: 25px;
+            width: 300px;
+            box-shadow: 0 10px 35px rgba(255, 50, 120, 0.25);
+            animation: pop 1s ease;
+        }
+
+        h1 {
+            color: #ff367c;
+            font-size: 30px;
+        }
+
+        h2 {
+            color: #e84375;
+        }
+
+        p {
+            color: #a8325b;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        button {
+            background: #ff4f91;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 13px 22px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 12px;
+        }
+
+        button:hover {
+            background: #e62e73;
+            transform: scale(1.05);
+        }
+
+        .heart {
+            position: absolute;
+            bottom: -30px;
+            animation: float 7s linear infinite;
+            font-size: 25px;
+        }
+
+        @keyframes float {
+            to {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes pop {
+            from {
+                transform: scale(0.7);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="window">
+        <div style="font-size: 45px;">🎀💗🎂</div>
+
+        <h1>Happie Birthday Soon!</h1>
+
+        <h2>My Kushe Bbyyy ❤️</h2>
+
+        <p>
+            Only <b>3 DAYS TO GO!</b> 🥹💕<br>
+            My princess's special day is almost here!
+            <br><br>
+            I have a little surprise waiting for youuu! 💌
+        </p>
+
+        <button onclick="showMessage()">
+            Open Your Surprise 💗
+        </button>
+
+        <p id="surprise" style="display:none;">
+            I love youuu sooooo much, bbyyy! 🥹❤️
+            <br>
+            You make my world more beautiful.
+            <br>
+            Your birthday is special to me because
+            YOU are special to me! 💋
+            <br><br>
+            Forever your boyyy! 💖
+        </p>
+    </div>
+
+    <script>
+        function showMessage() {
+            document.getElementById("surprise").style.display = "block";
+        }
+
+        for (let i = 0; i < 18; i++) {
+            let heart = document.createElement("div");
+            heart.className = "heart";
+            heart.innerHTML = ["❤️", "💗", "💕", "🎀"][i % 4];
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDelay = Math.random() * 7 + "s";
+            document.body.appendChild(heart);
+        }
+    </script>
+
+</body>
+</html>
